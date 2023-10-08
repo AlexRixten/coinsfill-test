@@ -1,0 +1,19 @@
+.wrapper{
+  @apply fixed bottom-0 w-full;
+  padding: 21px 41px 12px;
+  border-radius: 10px 10px 0 0;
+  background-color: white !important;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.00) 0%, #E5F1FB 100%);
+  box-shadow: 0px -5px 20px 0px rgba(0, 0, 0, 0.10);
+  ul{
+    @apply flex items-center justify-between;
+    a{
+      @apply flex flex-col gap-[10px] items-center justify-center cursor-pointer hover:text-[#4835D4] text-[#707178] text-[12px] font-medium;
+      &.active{
+        @apply text-[#4835D4];
+      }
+    }
+  }
+}
+
+

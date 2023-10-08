@@ -1,0 +1,11 @@
+.wrapper{
+  @apply py-[18px] px-[28px] flex items-start justify-between text-black;
+}
+
+.logo{
+  @apply max-w-[100px] flex items-end gap-[9px] text-[#4D6AE4] text-[12px] font-bold;
+}
+
+.btnsGroup{
+  @apply h-[47px] flex items-center justify-end gap-[18px];
+}

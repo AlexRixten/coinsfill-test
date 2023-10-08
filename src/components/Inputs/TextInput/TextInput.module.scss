@@ -1,0 +1,19 @@
+.formControlInput {
+  @apply relative flex flex-col gap-[9px] items-start justify-between text-[14px] font-bold text-white;
+  input {
+    @apply w-full h-[47px] rounded-[22px] py-[15px] px-[56px] text-[#1E1E2E] text-[15px] font-medium;
+  }
+}
+.errorMessage {
+  @apply absolute text-red-600 font-bold text-[10px] bottom-[-17px];
+}
+
+.inputWrapper{
+  @apply relative;
+  .infoIcon{
+    @apply absolute top-[12px] left-[20px];
+  }
+  .showPasswordIcon{
+    @apply absolute top-[14px] right-[20px];
+  }
+}

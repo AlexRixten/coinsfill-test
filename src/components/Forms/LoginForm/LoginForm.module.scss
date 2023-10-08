@@ -1,0 +1,32 @@
+.wrapper {
+  @apply h-full text-white;
+  background: url("../../../assets/images/bg.png") center/cover no-repeat;
+  background-blend-mode: screen;
+  a{
+    @apply underline;
+  }
+}
+
+.title {
+  @apply text-[26px] font-bold text-center;
+}
+
+.form{
+  @apply h-fit;
+}
+
+.formWrapper{
+  @apply flex flex-col gap-[22px];
+  padding: 53px 13px 26px;
+}
+
+.forgetPassword{
+  @apply text-[#86BFEB] text-[12px] font-medium underline;
+}
+
+.checkbox {
+  @apply flex items-start gap-[18px];
+  p {
+    @apply max-w-[240px] text-[12px] font-medium text-justify;
+  }
+}

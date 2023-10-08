@@ -1,0 +1,7 @@
+.wrapper{
+  @apply flex flex-col items-center pt-[62px];
+}
+
+.btnsGroup{
+  @apply max-w-[375px] w-full mt-[84px] flex flex-col gap-[20px];
+}

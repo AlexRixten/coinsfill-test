@@ -16,12 +16,19 @@
   }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+body{
+  @apply h-screen text-[14px] leading-normal font-normal;
 }
+
+main{
+  @apply px-[27px] pb-32;
+  h1{
+    @apply w-full text-left text-[#1E1E2E] text-[24px] leading-normal font-bold;
+  }
+}
+
+input{
+  @apply outline-none;
+}
+
+

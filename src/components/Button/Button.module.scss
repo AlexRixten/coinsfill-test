@@ -1,0 +1,16 @@
+.btn{
+  @apply w-full h-[62px] rounded-[50px] py-[16px] flex items-center justify-center text-[14px] font-bold text-white gap-2.5;
+  box-shadow: 0 4px 20px 0 rgba(104, 109, 224, 0.50);
+
+  &.yellow{
+    background: linear-gradient(273deg, #FFC543 4.95%, #FF8412 93.62%);
+    box-shadow: 0 4px 8px 0 rgba(67, 41, 124, 0.25);
+  }
+  &.blue{
+    background: linear-gradient(273deg, #686DE0 4.95%, #4834D4 93.62%);
+  }
+  &.default{
+    @apply text-[#1E1E2E];
+    background: linear-gradient(273deg, #EDEBFB 4.95%, #F0F0FC 93.62%);
+  }
+}

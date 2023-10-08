@@ -1,36 +1,121 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Тестовое задание [coinsfill](https://career.habr.com/companies/coinsfill-cash)
+Для прохождения тестовго задания, необходимо сверстать по заданному [макету](https://www.figma.com/file/IzomCNCemtEBchR7PqsA5B/testovoe-fixer?type=design&node-id=0-1&mode=design&t=XOgmx55EaycCoQVX-0) простое мини Web приложение (сайт). Приложение должно иметь общедоступную форму входа и форму регистрации (email и пароль ) с валидацией данных. Также, должна быть часть приложения доступная только после входа, которая будет иметь форму для загрузки картинки (popup), и страницу отображающую эту картинку.
 
-## Getting Started
+Картинка должна быть преобразована в Base64 и отправлена на back-end. Детали ниже
 
-First, run the development server:
+### Требования:
+* ReactJS фреймворк NextJS в связке с TailwindCSS без TypeScrypt.
+* Разработка в режиме NextJS Page Routing
+* Сайт должен експортироватся в статичный
+* Сайт должен проверять размер и тип файла, в случае если не картинка или размер больше 5Мб писать соответсвующую ошибку
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+### Приветствуется:
+* Использование шаблонов (layout)
+* Использование контекста
+* Проверка JWT токена на стороне клиента
+* Приветсвуется использование SWR
+
+
+Точка входа ```https://test-task.test211.workers.dev``` , все запросы POST и PUT отправляют JSON
+
+### Регистация:
+```
+POST: /user
+{
+    email:<valid email>
+    password: <password min 5 >
+}
+```
+### Ответ:
+```
+Успешный:
+{
+    ok:true,
+    token: <JWT>
+}
+```
+```
+Ошибка:
+{
+    ok:false,
+    errors:<Errors Object>
+}
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Вход:
+```
+POST: /login
+{
+    email:<valid email>
+    password: <password min 5 >
+}
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Ответ:
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+```
+Успешный:
+{
+    ok:true,
+    token: JWT
+}
+```
+```
+Ошибка:
+{
+    ok:false,
+    errors:<Errors Object>
+}
+```
 
-## Learn More
+## Закрытая часть сайта.
+Сайт должен понимать, что у клинета нет доступа к закрытой части и возвращать его на страницу/popup входа. Для доступа в закрытую часть необходимо в Headers запроса передавать заголовок с именем token-tt и значением token полученым из запроса регистрации или входа
 
-To learn more about Next.js, take a look at the following resources:
+### Загрузка картинки:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```
+PUT: /account/image
+Header: 'token-tt':<token>
+{
+    image: <base64 представление картинки>
+}
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+### Ответ:
+```
+Успешный:
+{
+    ok:true,
+}
+```
+```
+Ошибка:
+{
+    ok:false,
+    errors:<Errors Object>
+}
+```
 
-## Deploy on Vercel
+### Получение картинки:
+```
+GET: /account/image
+Header: 'token-tt':<token>
+{
+    image: <base64 представление картинки>
+}
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+### Ответ:
+```
+Успешный:
+{
+    ok:true,
+    image: <base64 представление картинки>
+}
+```
+```
+Ошибка или картинка не найдена:
+{
+    ok:false
+}
+```

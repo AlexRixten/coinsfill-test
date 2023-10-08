@@ -1,0 +1,19 @@
+.wrapper {
+  @apply flex items-center justify-center fixed top-0 left-0 w-screen max-w-full h-screen max-h-full m-0 p-2.5 z-10;
+  background: url("../../assets/images/layout.png") center center/cover no-repeat;
+}
+
+.container {
+  @apply relative rounded-[35px] max-w-[375px] min-h-[600px] w-full;
+  padding: 30px 15px 18px;
+  background: linear-gradient(180deg, #4936D4 0%, #6835D4 100%);
+}
+
+
+.content {
+  @apply h-full py-[32px] px-[12px];
+}
+
+.close {
+  @apply absolute flex items-center justify-center w-[38px] h-[38px] bg-[#FFC543] rounded-full right-[-8px] top-[-8px];
+}
